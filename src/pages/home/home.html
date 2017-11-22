@@ -1,16 +1,27 @@
 <ion-header>
   <ion-navbar color="primary">
+
     <ion-title>
       Bits2Do
     </ion-title>
+    
     <ion-buttons end>
       <button ion-button icon-only (click)="addItem()"><ion-icon name="add"></ion-icon></button>
     </ion-buttons>
+  
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  
   <ion-list>
-    <ion-item *ngFor="let item of items" (click)="viewItem(item)">{{item.title}}</ion-item>
+    <ion-item *ngFor="let item of items" (click)="viewItem(item)">
+
+      <div>
+        <h1>{{item.title}} <span class="{{item.status}}"> {{item.status}}</span></h1>
+      </div>     
+      
+    </ion-item>
   </ion-list>
+
 </ion-content>

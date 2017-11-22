@@ -7,6 +7,7 @@ import { NavController, ViewController } from 'ionic-angular';
 })
 
 export class AddItemPage {
+  
   title: string;
   description: string;
   status: string;
