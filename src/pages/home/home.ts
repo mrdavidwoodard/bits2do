@@ -3,6 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 
 import { AddItemPage } from '../add-item/add-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
+import { EditItemPage } from '../edit-item/edit-item';
 import { Data } from '../../providers/data/data';
 
 @Component({
@@ -46,6 +47,19 @@ export class HomePage {
     this.navCtrl.push(ItemDetailPage, {
       item: item 
     });
+  }
+
+  editItem(item){
+    this.navCtrl.push(EditItemPage, {
+      item: item 
+    });
+  }
+  updateItem(item) {
+      this.items.push(item);
+  }
+
+  removeItem(item){
+    this.items.remove(item);
   }
 
 }

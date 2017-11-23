@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
+import { EditItemPage } from '../pages/edit-item/edit-item';
 import { Data } from '../providers//data/data';
  
 @NgModule({
@@ -17,7 +18,8 @@ import { Data } from '../providers//data/data';
     MyApp,
     HomePage,
     AddItemPage,
-    ItemDetailPage
+    ItemDetailPage,
+    EditItemPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { Data } from '../providers//data/data';
     MyApp,
     HomePage,
     AddItemPage,
-    ItemDetailPage
+    ItemDetailPage,
+    EditItemPage
   ],
   providers: [
     Data,
