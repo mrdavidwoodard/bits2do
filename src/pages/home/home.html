@@ -13,19 +13,37 @@
 </ion-header>
 
 <ion-content padding>
+  <!-- Segment in content -->
+    <ion-segment [(ngModel)]="status" color="primary" (ionChange)="listChange($event)">
+      <ion-segment-button value="pending">
+        Pending
+      </ion-segment-button>
+      <ion-segment-button value="complete">
+        Complete
+      </ion-segment-button>
+      <ion-segment-button value="overdue">
+          Overdue
+      </ion-segment-button>
+    </ion-segment>
+      
   
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of items">
-      <ion-item >
-        <h1>{{item.title}} <span class="{{item.status}}"> {{item.status}}</span></h1>
-      </ion-item> 
-
-        <ion-item-options side="right">
-          <button ion-button color="secondary"  (click)="viewItem(item)">View</button>
-          <button ion-button color="default" (click)="editItem(item)">Edit</button>
-        </ion-item-options>
+  <div [ngSwitch]="status">
     
-    </ion-item-sliding>
-  </ion-list>
+    <div *ngFor="let item of items"> 
+      <ion-list *ngSwitchCase="item.status">
+        <ion-item-sliding>
+          <ion-item >
+            <h1>{{item.title}} <span class="{{item.status}}"> {{item.status}}</span></h1>
+          </ion-item> 
+
+          <ion-item-options side="right">
+            <button ion-button color="secondary"  (click)="viewItem(item)">View</button>
+            <button ion-button color="default" (click)="editItem(item)">Edit</button>
+          </ion-item-options>
+    
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+  </div>
 
 </ion-content>

@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, Platform } from 'ionic-angular';
 //import { HttpModule } from '@angular/http';
-//import { SplashScreen } from '@ionic-native/splash-screen';
-//import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
@@ -23,6 +23,7 @@ import { Data } from '../providers//data/data';
   ],
   imports: [
     BrowserModule,
+    //HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -36,8 +37,8 @@ import { Data } from '../providers//data/data';
   ],
   providers: [
     Data,
-    //StatusBar,
-    //SplashScreen, 
+    StatusBar,
+    SplashScreen, 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

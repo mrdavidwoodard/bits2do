@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, Platform } from 'ionic-angular';
+//import { HttpModule } from '@angular/http';
 
 import { AddItemPage } from '../add-item/add-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
@@ -13,14 +14,22 @@ import { Data } from '../../providers/data/data';
 export class HomePage {
 
   public items = [];
+  status: string = "pending";
+  isAndroid: boolean = true;
+  listChange(event) {
+   this.status = event.value;
+  };
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data, public platform: Platform) {
+
+    this.isAndroid = platform.is("android");
 
     this.dataService.getData().then((todos) => { 
       if(todos) {
         this.items = todos;
       }
     });
+
 
   }
 
@@ -32,7 +41,7 @@ export class HomePage {
     let addModal = this.modalCtrl.create(AddItemPage);
     addModal.onDidDismiss((item) => {
       if(item) {
-        this.saveItem(item);
+        this.saveItem(item); 
       }
     });
 
@@ -41,6 +50,7 @@ export class HomePage {
 
   saveItem(item) {
     this.items.push(item);
+    return this.items;
   }
 
   viewItem(item){
@@ -58,8 +68,8 @@ export class HomePage {
       this.items.push(item);
   }
 
-  removeItem(item){
-    this.items.remove(item);
-  }
+  //removeItem(item){
+   // this.items.remove(item);
+  //}
 
 }
