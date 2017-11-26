@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { Data } from '../../providers/data/data';
 
 @Component({
   selector: 'page-add-item',
@@ -14,7 +15,7 @@ export class AddItemPage {
   description: string;
   status: string;
 
-  constructor(public navCtrl: NavController, public view: ViewController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public view: ViewController, public navParams: NavParams, public dataService: Data) {
 
   }
 
@@ -24,7 +25,7 @@ export class AddItemPage {
 
   saveItem() {
     let newItem = {
-      taskId: this.navParams.get('items'),
+      taskId: this.taskId,
       title: this.title,
       description: this.description,
       status: this.status

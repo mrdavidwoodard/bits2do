@@ -63,13 +63,11 @@ export class HomePage {
     this.navCtrl.push(EditItemPage, {
       item: item 
     });
-  }
-  updateItem(item) {
-      this.items.push(item);
+    return this.items;
   }
 
-  //removeItem(item){
-   // this.items.remove(item);
-  //}
+  removeItem(item){
+    this.items.splice(this.items.indexOf(item),1);
+  }
 
 }

@@ -37,6 +37,7 @@
           </ion-item> 
 
           <ion-item-options side="right">
+            <button ion-button color="danger" (click)="removeItem(item)">Delete</button>
             <button ion-button color="secondary"  (click)="viewItem(item)">View</button>
             <button ion-button color="default" (click)="editItem(item)">Edit</button>
           </ion-item-options>
