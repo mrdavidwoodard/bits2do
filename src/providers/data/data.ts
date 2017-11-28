@@ -1,6 +1,5 @@
 import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
-import { HTTP } from '@ionic-native/http';
 
  
 @Injectable()
@@ -17,6 +16,10 @@ export class Data {
  
   getData() {
     return this.storage.get('todos'); 
+  }
+
+  update(data) {
+    this.storage.set('todos', data);
   }
  
   save(data){

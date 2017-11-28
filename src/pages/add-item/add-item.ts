@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { Data } from '../../providers/data/data';
 
 @Component({
@@ -20,7 +19,7 @@ export class AddItemPage {
   }
 
   ionViewDidLoad() {
-    //let items = this.navParams.get('items');
+    
   }
 
   saveItem() {
