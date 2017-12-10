@@ -36,14 +36,14 @@ export class EditItemPage {
       description: this.description,
       status: this.status
     }
+    
+    /*
     this.storage.set(updateItem.taskId, this.taskId);
-    console.log(this.taskId);
     this.storage.set(updateItem.title, this.title);
-    console.log(this.title);
     this.storage.set(updateItem.description, this.description);
-    console.log(this.description);
     this.storage.set(updateItem.status, this.status);
-    console.log(this.status);
+    */
+    
     this.view.dismiss(updateItem);
       
   }

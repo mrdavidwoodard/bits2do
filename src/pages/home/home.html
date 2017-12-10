@@ -32,7 +32,7 @@
     <div *ngFor="let item of items"> 
       <ion-list *ngSwitchCase="item.status">
         <ion-item-sliding>
-          <ion-item >
+          <ion-item (click)="viewItem(item)">
             <h1>{{item.title}} <span class="{{item.status}}"> {{item.status}}</span></h1>
           </ion-item> 
 

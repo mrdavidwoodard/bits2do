@@ -47,11 +47,11 @@ export class HomePage {
 
   saveItem(item) {
     this.items.push(item);
-    return this.items;
+    this.dataService.save(this.items);
   }
   
   editItem(item){
-    let editModal = this.modalCtrl.create(EditItemPage, {item: item});
+    let editModal = this.modalCtrl.create(EditItemPage, { item: item });
     this.removeItem(item);
     editModal.onDidDismiss((item) => {
       
@@ -67,7 +67,7 @@ export class HomePage {
 
   updateItem(item) {
     this.items.push(item);
-    return this.items;
+    this.dataService.save(this.items);
     
   }
   
@@ -80,6 +80,7 @@ export class HomePage {
 
   removeItem(item){
     this.items.splice(this.items.indexOf(item),1);
+    this.dataService.save(this.items);
   }
 
 }

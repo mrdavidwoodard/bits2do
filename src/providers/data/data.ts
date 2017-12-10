@@ -10,20 +10,23 @@ export class Data {
   constructor(public storage: Storage){
 
 
-
   }
-
  
   getData() {
     return this.storage.get('todos'); 
   }
 
-  update(data) {
-    this.storage.set('todos', data);
-  }
- 
   save(data){
     this.storage.set('todos', data);
   }
+
+  update(data){
+    this.storage.set('todos', data);
+  }
+
+  remove(data){
+    return this.storage.remove(data);
+  }
+
  
 }
